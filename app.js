@@ -25,7 +25,7 @@ const MongoStore = require('connect-mongodb-session')(session);
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: false,
+    useUnifiedTopology: true,
     useFindAndModify: false
 })
     .then(() => {
