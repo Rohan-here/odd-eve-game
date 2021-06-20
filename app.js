@@ -17,10 +17,10 @@ const passport = require('passport');
 const LocalStratergy = require('passport-local');
 const Review = require('./models/review');
 const sanitize = require('express-mongo-sanitize');
-const dbURL = process.env.DB_URL;
+// const dbURL = process.env.DB_URL;
 const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session);
-
+const dbURL = "mongodb+srv://RohanGupta:PARyD083Knjadvel@cluster0.vkwih.mongodb.net/oddevegame?retryWrites=true&w=majority";
 
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
