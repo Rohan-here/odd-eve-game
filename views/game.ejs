@@ -187,12 +187,12 @@
 
         function userBowl(input) {
             chance--;
-            target += input;
+
 
             let computerChose = computerChoice();
             if (computerChose == 5) { computerChose++ };
             finalShow.innerHTML = `Balling chances left ${chance}`;
-
+            target += computerChose;
             console.log("Bowling chances left " + chance);
             if (chance == 0 || (computerChose == input) || (doneBatting && target > score)) {
                 if (computerChose == input) {
