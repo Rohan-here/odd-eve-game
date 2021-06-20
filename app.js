@@ -74,9 +74,9 @@ passport.use(new LocalStratergy(Player.authenticate()));
 passport.serializeUser(Player.serializeUser());
 passport.deserializeUser(Player.deserializeUser());
 
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
 
-    res.locals.currentUser = req.user;
+    res.locals.currentUser = await req.user;
     next();
 
 })
@@ -101,11 +101,11 @@ const isLoggedIn = (req, res, next) => {
 
 
 
-app.get('/register', (req, res) => {
+app.get('/register', async (req, res) => {
     try {
-        res.render('register', { messages: req.flash('info') });
+        await res.render('register', { messages: req.flash('info') });
     } catch (e) {
-        res.redirect('/error');
+        await res.redirect('/error');
     }
 })
 
@@ -276,6 +276,8 @@ app.get('/test', (req, res) => {
 app.get('*', (req, res) => {
     res.render('end');
 })
+
+
 var port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log("Listening on PORT 4000");
