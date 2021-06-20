@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login&register.css">
+    <link rel="stylesheet" href="allStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h4 class="font-bold">BICE<span>.com</span></h4>
+        </div>
+        <ul class=" nav-links">
+            <li><A href="/home">Home</A></li>
+            <li><A href="/dev">Developers</A></li>
+            <li><A href="/login">Login</A></li>
+        </ul>
+    </nav>
+
+    <div class="body">
+        <% if(messages.length!=0) {%>
+            <div class="errorFlash">
+                <span>
+                    <%= messages %>
+                </span>
+            </div>
+            <% } %>
+                <div class="container">
+                    <div class="title">Login</div>
+                    <div class="content">
+                        <form action="/loginUser" method="POST">
+                            <div class="user-details">
+
+                                <div class="input-box">
+                                    <label class="details" for="username">Username</label>
+                                    <input type="text" placeholder="Enter your username" id="username" name="username"
+                                        required>
+                                </div>
+
+                                <div class="input-box">
+                                    <span class="details">Password</span>
+                                    <input type="text" placeholder="Enter your password" name="password" required>
+                                </div>
+
+                            </div>
+
+
+                            <button>Login
+                            </button>
+
+                            New to Bice ? <a href="/register"> Register here</a>
+
+                    </div>
+                </div>
+                <div class="message">
+                    <p>You won't get Past if your data is wrong or not Registered</p>
+                    <p style="font-weight: 500;">We have no method of resetting Password so dont lose it</p>
+                </div>
+    </div>
+
+</body>
+
+</body>
+
+</html>

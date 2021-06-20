@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Tailwindstyle.css">
+    <link rel="stylesheet" href="allStyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+    <title>
+        <%=currentUser.username%>
+    </title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h4 class="font-bold">BICE<span>.com</span></h4>
+        </div>
+        <ul class=" nav-links">
+            <li><A href="/home">Home</A></li>
+            <li><A href="/dev">Developers</A></li>
+            <% if(!currentUser) { %>
+                <li><A href="/login">Login</A></li>
+                <% } else {%>
+                    <li><a href="/logout">
+                            Logout
+                        </a></li>
+                    <% } %>
+        </ul>
+    </nav>
+
+    <div class="w-screen bg-gray-700 flex flex-col justify-center items-center" id="infobar">
+
+        <p class="text-3xl bg-gray-700 text-purple-200 font-bold mt-3 ml-3">
+            <%= currentUser.username %>
+        </p>
+
+        <p class="text-1xl bg-gray-700 text-purple-200 font-bold mt-2 mb-2 ml-3"> <span>Email : </span> <span>
+                <%= currentUser.email %>
+            </span></p>
+
+    </div>
+    <div class="w-full flex flex-col bg-purple-300 items-center text-3xl">
+        <% for(let el of currentUser.scores) { %>
+            <div class="flex  flex-row border-2 border-black w-4/5 h-24 rounded m-2">
+                <p class="flex bg-yellow-300 flex-col w-1/3 justify-center items-center" style="font-family: Graduate;">
+                    <span>
+                        <%= el.score %>
+                    </span>
+                    <span>Score</span>
+                </p>
+
+                <p class="flex flex-col bg-white w-1/3 justify-center items-center" style="font-family: Graduate;">
+                    <span>
+                        <%= el.target %>
+                    </span>
+                    <span>Target</span>
+                </p>
+                <% if (el.score>= el.target) { %>
+                    <p class="Win bg-green-500 flex flex-col text-white w-1/3 justify-center items-center font-bold"
+                        style="font-family: Poppins;"> Won
+                    </p>
+                    <% }else { %>
+
+                        <p class="Lose bg-red-600 text-white flex flex-col w-1/3 justify-center items-center font-bold"
+                            style="font-family: Poppins;">Lost</p>
+                        <% } %>
+            </div>
+            <% } %>
+    </div>
+</body>
+
+</html>

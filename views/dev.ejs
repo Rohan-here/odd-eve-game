@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers</title>
+    <link rel="stylesheet" href="Tailwindstyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="allStyles.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h4 class="font-bold">BICE<span>.com</span></h4>
+        </div>
+        <ul class=" nav-links">
+            <li><A href="/home">Home</A></li>
+            <li><A href="/dev">Developers</A></li>
+            <% if(!currentUser) { %>
+                <li><A href="/login">Login</A></li>
+                <% } else {%>
+                    <li><a href="/playerActive">
+                            <%= currentUser.username %>
+                        </a></li>
+                    <% } %>
+        </ul>
+    </nav>
+
+    <div class="flex w-screen flex-col md:flex-row">
+        <div class="w-full h-screen m-6 md:w-1/2 flex flex-col justify-center items-center">
+
+            <img src="photo.jpg" class="border-2 borer-black" style="border-radius: 50%; height:15rem;width:15rem;">
+            <div class="font-bold flex flex-col justify-center items-center p-4">
+                <p class="text-2xl">Rohan Gupta</p>
+                <p>I am the Developer of this project</p>
+                <p>You can contact me through Discord </p>
+                <span class="text-lg">not_rohan#3372</span>
+                <p>Make sure to leave a review</p>
+                </p>
+            </div>
+        </div>
+        <div class="w-full h-screen md:w-1/2 flex justify-center items-center">
+            <div class="bg-red-100 w-full rounded m-10 p-10  md:w-4/5">
+                <p class=" font-bold text-xl">Leave a review</p>
+                <p> Let us know your Comments.</p>
+                <form action="/saveReview" method="POST">
+                    <input placeholder="Enter your name here"
+                        class="w-full my-2 px-3 py-1 border rounded-lg text-xs text-gray-700 focus:outline-none"
+                        id="name" name="name">
+                    <textarea row="10"
+                        class="w-full h-64 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                        name="review"></textarea>
+                    <div class="flex mt-3 w-full justify-center"><button
+                            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                            Submit
+                        </button></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

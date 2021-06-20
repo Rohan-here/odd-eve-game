@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:4000/home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd-Even</title>
+    <link rel="stylesheet" href="./Odd-Even_files/Tailwindstyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link rel="stylesheet" href="./Odd-Even_files/animate.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="./Odd-Even_files/css2" rel="stylesheet">
+
+    <link href="./Odd-Even_files/css2(1)" rel="stylesheet">
+    <link rel="stylesheet" href="./Odd-Even_files/allStyles.css">
+<script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script></head>
+
+
+<body>
+    <div class="container" id="blur">
+        <nav>
+            <div class="logo">
+                <h4 class="font-bold">BICE<span>.com</span></h4>
+            </div>
+            <ul class=" nav-links">
+                <li><a href="http://localhost:4000/home">Home</a></li>
+                <li><a href="http://localhost:4000/dev">Developers</a></li>
+                
+                    <li><a href="http://localhost:4000/login">Login</a></li>
+                    
+            </ul>
+        </nav>
+        <div class="flex flex-col items-center justify-center  sm:text-base" id="mainBody">
+            <span class="font-bold text-white p-1 leading-none text-center " style="font-size:10em;"> Odd Even</span>
+            <span class="font-bold leading-none text-white" style="font-size: 5em;"> Game</span>
+            <div id="buttons" class="w-3/5 flex justify-evenly pt-12">
+                <button onclick="toggle()" class="button-home animate__animated animate__pulse animate__infinite" id="button-play">
+                    Play
+                </button>
+
+            </div>
+        </div>
+
+        <footer class="flex flex-col items-center bg-yellow-100 text-6 w-screen">
+            <!-- <p class="font-mono text-black font-bold">Developed by Rohan Gupta ---- Delhi Technological University</p> -->
+            <!-- <p class="font-mono text-black">Game version 1.0.0</p> -->
+            <span class="font-mono text-black" href="https://github.com/Rohan-here">Game version 1.0.0</span>
+        </footer>
+    </div>
+    <div id="rules" class="flex flex-col justify-center items-center rounded-lg border-black border-8">
+        <div class="text-lg font-black font-bold"> RULES </div>
+        <p class="py-5">
+        </p><ul style="margin-bottom: 10px;">
+            <li>1. Your aim is to beat the Computer.</li>
+            <li>2. Score more than the opponent to Win the game.</li>
+            <li>3. Opponent is bowled if your choice is similar to opponent choice.</li>
+            <li>4. You are bowled if opponent choice is similar to your choice</li>
+        </ul>
+        <p></p>
+        <form action="http://localhost:4000/game" method="GET">
+            <button onclick="toggle()" class="button-rules">
+                Play
+            </button>
+        </form>
+
+    </div>
+    <script type="text/javascript">
+        function toggle() {
+            var blur = document.getElementById('blur');
+            blur.classList.toggle('active');
+
+            var rules = document.getElementById('rules');
+            rules.classList.toggle('active');
+        }
+    </script>
+
+
+
+</body></html>
