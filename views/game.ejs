@@ -112,42 +112,42 @@
             if (doneBatting && doneBalling) {
                 var Replay = document.createElement("button");
                 var goHome = document.createElement("button");
-                var returnForm = document.createElement("form");
+                var ReplayForm = document.createElement("form");
+                var goHomeForm = document.createElement("form");
                 var returnScore = document.createElement("input");
                 var returnTarget = document.createElement("input");
                 Replay.innerHTML = "Play Again"
                 goHome.innerHTML = "Home"
                 Replay.classList.add("buttonEnd");
                 goHome.classList.add("buttonEnd");
-                Replay.name = "savescoreButton";
-                Replay.value = "replay";
-                goHome.value = "goHome";
-                goHome.name = "savescoreButton";
                 returnScore.type = "hidden";
                 returnTarget.type = "hidden";
                 returnScore.name = "returnScore";
                 returnTarget.name = "returnTarget";
                 returnScore.value = score.toString();
                 returnTarget.value = target.toString();
-                console.log(` score and target ${returnScore.value} ${returnTarget.value}  `);
-                returnForm.appendChild(returnScore);
-                returnForm.appendChild(returnTarget);
-                returnForm.appendChild(Replay);
-                returnForm.appendChild(goHome);
 
-                returnForm.action = "/saveScores"
-                returnForm.method = "post";
+                ReplayForm.action = "/saveScoreAndReturn";
+                ReplayForm.method = "post";
+                ReplayForm.appendChild(returnScore);
+                ReplayForm.appendChild(returnTarget);
+                ReplayForm.appendChild(Replay);
+                goHomeForm.action = "/saveScoreAndHome";
+                goHomeForm.method = "post";
+                goHomeForm.appendChild(returnScore);
+                goHomeForm.appendChild(returnTarget);
+                goHomeForm.appendChild(goHome);
                 if (score < target) {
                     finalShow.innerHTML = `You Lost by ${target - score} runs`;
                     batOrBowl.remove();
-                    buttonBox.appendChild(returnForm);
-
+                    buttonBox.appendChild(ReplayForm);
+                    buttonBox.appendChild(goHomeForm);
                 }
                 else {
                     finalShow.innerHTML = `You Won by ${score - target} runs`;
                     batOrBowl.remove();
-                    buttonBox.appendChild(returnForm);
-
+                    buttonBox.appendChild(ReplayForm);
+                    buttonBox.appendChild(goHomeForm);
                 }
                 console.log("GAME OVER ");
             }
