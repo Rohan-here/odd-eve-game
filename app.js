@@ -20,7 +20,6 @@ const sanitize = require('express-mongo-sanitize');
 const dbURL = process.env.DB_URL;
 const session = require('express-session');
 // const MongoStore = require('connect-mongodb-session')(session);
-// const dbURL = "mongodb+srv://RohanGupta:PARyD083Knjadvel@cluster0.vkwih.mongodb.net/oddevegame?retryWrites=true&w=majority";
 
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
@@ -55,7 +54,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        // secure: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
@@ -136,7 +135,7 @@ app.post('/registerUser', async (req, res) => {
                 .required()
         })
 
-
+        console.log(req.body);
         const body = req.body;
         const result = userSchemaValid.validate(body);
         const mailToBeChecked = { email: body.email };
@@ -182,6 +181,7 @@ app.get("/login", (req, res) => {
 
 app.post("/loginUser", passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
     try {
+        console.log(req.body.username);
         res.redirect("/home");
     } catch (e) {
         res.redirect('/error');
