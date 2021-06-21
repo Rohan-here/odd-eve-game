@@ -225,31 +225,30 @@ app.post('/saveReview', async (req, res) => {
     res.redirect('/dev');
 })
 
-app.post('/saveScoreAndReturn', async (req, res) => {
+app.post('/saveScores', isLoggedIn, async (req, res) => {
     try {
         const body = req.body;
+        console.log(body);
         const player = await Player.findById(req.user._id);
         const score = { score: body.returnScore, target: body.returnTarget };
         player.scores.push(score);
         await player.save();
-        res.redirect('/game');
+        if (body.savescoreButton === "replay") {
+            console.log("going to game");
+            res.redirect('/game');
+        } else if (body.savescoreButton === "goHome") {
+            console.log("going to home");
+            res.redirect('/home');
+        }
+        else {
+            res.redirect('/error');
+        }
     } catch (e) {
         res.redirect('/error');
     }
 })
 
-app.post('/saveScoreAndHome', async (req, res) => {
-    try {
-        const body = req.body;
-        const player = await Player.findById(req.user._id);
-        const score = { score: body.returnScore, target: body.returnTarget };
-        player.scores.push(score);
-        await player.save();
-        res.redirect('/home');
-    } catch (e) {
-        res.redirect('/error');
-    }
-})
+
 
 app.get('/error', (req, res) => {
     req.logOut();
