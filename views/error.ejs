@@ -35,11 +35,37 @@
 
 
         </ul>
+        <button class="navbutton" onclick="shownav()" style="color:white; font-size: 35px;">&#9776</button>
+
     </nav>
+    <div class="mobilebar">
+        <div class="newnav" id="newnav">
+            <A href="/home">Home</A>
+            <A href="/dev">Developers</A>
+            <% if(!currentUser) { %>
+                <A href="/login">Login</A>
+                <% } else {%>
+                    <a href="/playerActive">
+                        <%= currentUser.username %>
+                    </a>
+                    <% } %>
+        </div>
+    </div>
     <div class=" w-screen flex justify-center items-center text-3xl text-purple-600 md:text-6xl "
         style="height: 92vh; font-family: Poppins;">
         WE RAN INTO AN ERROR !!!
     </div>
+    <script>
+        function shownav() {
+            var x = document.getElementById("newnav");
+            if (x.style.display == "none") {
+                x.style.display = "flex";
+            }
+            else {
+                x.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

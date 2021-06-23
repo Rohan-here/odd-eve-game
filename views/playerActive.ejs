@@ -31,8 +31,22 @@
                         </a></li>
                     <% } %>
         </ul>
-    </nav>
+        <button class="navbutton" onclick="shownav()" style="color:white; font-size: 35px;">&#9776</button>
 
+    </nav>
+    <div class="mobilebar">
+        <div class="newnav" id="newnav">
+            <A href="/home">Home</A>
+            <A href="/dev">Developers</A>
+            <% if(!currentUser) { %>
+                <A href="/login">Login</A>
+                <% } else {%>
+                    <a href="/Logout">
+                        Logout
+                    </a>
+                    <% } %>
+        </div>
+    </div>
     <div class="w-screen bg-gray-700 flex flex-col justify-center items-center" id="infobar">
 
         <p class="text-3xl bg-gray-700 text-purple-200 font-bold mt-3 ml-3">
@@ -72,6 +86,17 @@
             </div>
             <% } %>
     </div>
+    <script>
+        function shownav() {
+            var x = document.getElementById("newnav");
+            if (x.style.display == "none") {
+                x.style.display = "flex";
+            }
+            else {
+                x.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

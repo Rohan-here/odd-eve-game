@@ -18,8 +18,22 @@
             <li><A href="/dev">Developers</A></li>
             <li><A href="/login">Login</A></li>
         </ul>
-    </nav>
+        <button class="navbutton" onclick="shownav()" style="color:white; font-size: 35px;">&#9776</button>
 
+    </nav>
+    <div class="mobilebar">
+        <div class="newnav" id="newnav">
+            <A href="/home">Home</A>
+            <A href="/dev">Developers</A>
+            <% if(!currentUser) { %>
+                <A href="/login">Login</A>
+                <% } else {%>
+                    <a href="/playerActive">
+                        <%= currentUser.username %>
+                    </a>
+                    <% } %>
+        </div>
+    </div>
     <div class="body">
         <% if(messages.length!=0) {%>
             <div class="errorFlash">
@@ -63,7 +77,17 @@
                     </div>
                 </div>
     </div>
-
+    <script>
+        function shownav() {
+            var x = document.getElementById("newnav");
+            if (x.style.display == "none") {
+                x.style.display = "flex";
+            }
+            else {
+                x.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -56,20 +56,50 @@ nav{
     transform: scale(1.2,1.2);
 }
 
-.newNav{
-    display: flex;
-    width: 100vh;
+.mobilebar{
+    background-color: #301A4B;
+    display: none;
+    width: 100vw;
+}
+.newnav{
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-.navbut{
-    visibility: hidden;
+.newnav a{
+    color :#F39A9D;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size:15px;
+    transition: 500ms;
+    margin: 5px;
+}
+.newnav a:hover{
+    color: white;
+    transform: scale(1.2,1.2);
 }
 
+.navbutton{
+    display: none;
+    color: #fff;
+    background-color: #301A4B;
+    font-size: 35px;
+    border: 0;
+}
 
-
+@media only screen and (max-width: 768px) {
+    .nav-links{
+        display: none;
+    }
+    .mobilebar{
+        display: block;
+    }
+    .navbutton{
+        display: block;
+    }
+    
+}
 
 #mainBody{
     height: 99vh; 
