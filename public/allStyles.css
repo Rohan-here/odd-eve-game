@@ -98,6 +98,7 @@ nav{
     visibility: visible;
     opacity: 1;
     transition: 0.5s;
+    min-width: 300px;
 }   
 
 .button-home{
