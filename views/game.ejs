@@ -51,10 +51,11 @@
                     <% } %>
         </div>
     </div>
-    <h1 class="h-20 text-3xl flex justify-center items-center bg-gray-700 text-purple-200 font-bold md:text-5xl "
+    <h1 class="h-20 text-3xl flex justify-center items-center flex-col bg-gray-700 text-purple-200 font-bold md:text-5xl "
         id="ButtonBox">
         <span class="" id="bat-bowl">
         </span>
+        <span class="whoChosewhat"></span>
     </h1>
     <div class=" flex justify-around pt-10 pb-5">
         <button id="b1" class="bg-blue-500 w-1/6 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">1</button>
@@ -107,6 +108,7 @@
         const b3 = document.getElementById("b3");
         const b4 = document.getElementById("b4");
         const b5 = document.getElementById("b5");
+        const whoChosewhat = document.getElementById("whoChosewhat");
         const finalShow = document.getElementById("chances");
         const buttonBox = document.getElementById("ButtonBox");
         let score = 0;
@@ -184,6 +186,7 @@
             score += input;
 
             let computerChose = computerChoice();
+            whoChosewhat.innerHTML = `Computer : ${computerChose} and ${currentUser.username} : ${input}`;
             if (computerChose == 5) { computerChose++ };
             console.log("Computer Chose " + computerChose);
 
@@ -214,6 +217,7 @@
 
 
             let computerChose = computerChoice();
+            whoChosewhat.innerHTML = `Computer : ${computerChose} and ${currentUser.username} : ${input}`;
             if (computerChose == 5) { computerChose++ };
             finalShow.innerHTML = `Balling chances left ${chance}`;
             target += computerChose;
@@ -241,10 +245,12 @@
             console.log("User Chose " + userIn);
             if (!doneBatting || !doneBalling) {
                 if (gameState == 0) {
+                    whoChosewhat.innerHTML = "";
                     batOrBowl.innerHTML = "You are Balling";
                     userBowl(userIn);
                 }
                 else {
+                    whoChosewhat.innerHTML = "";
                     batOrBowl.innerHTML = "You are Batting";
                     userBat(userIn);
                 }
