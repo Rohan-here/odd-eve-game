@@ -157,7 +157,8 @@
                 returnForm.appendChild(returnTarget);
                 returnForm.appendChild(Replay);
                 returnForm.appendChild(goHome);
-
+                scoreSpan.innerHTML = score;
+                targetSpan.innerHTML = target;
                 returnForm.action = "/saveScores"
                 returnForm.method = "post";
                 if (score < target) {
