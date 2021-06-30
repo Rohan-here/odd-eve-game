@@ -8,6 +8,7 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    min-height: 54px;
     height:8vh;
     width: 100vw;
     font-family: 'Poppins',sans-serif;

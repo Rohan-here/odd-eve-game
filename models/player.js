@@ -13,6 +13,10 @@ const playerSchema = new mongoose.Schema({
             target: {
                 type: Number,
                 default: 0
+            },
+            against: {
+                type: String,
+                default: "Computer"
             }
         }],
     date: {

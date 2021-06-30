@@ -19,8 +19,6 @@ const Review = require('./models/review');
 const sanitize = require('express-mongo-sanitize');
 const dbURL = process.env.DB_URL;
 const session = require('express-session');
-// const MongoStore = require('connect-mongodb-session')(session);
-// const dbURL = "mongodb+srv://RohanGupta:PARyD083Knjadvel@cluster0.vkwih.mongodb.net/oddevegame?retryWrites=true&w=majority";
 
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
@@ -41,14 +39,11 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname, '/resources')));
+app.use(express.static(path.join(__dirname, '/server')));
 
 
 
 app.use(session({
-    // store: new MongoStore({
-    //     url: dbURL,
-    //     touchAfter: 24 * 3600
-    // }),
     name: "blah",
     secret: 'this is secret',
     resave: false,
