@@ -86,16 +86,6 @@ const isLoggedIn = (req, res, next) => {
     next();
 }
 
-
-
-
-
-
-
-
-
-
-
 app.get('/register', async (req, res) => {
     try {
         await res.render('register', { messages: req.flash('info') });
